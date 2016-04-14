@@ -9,11 +9,6 @@ import Middleware.Middleware;
 public abstract interface Role {
     
     /**
-     * Create pointer to the game this is part of
-     */
-    public void setGame(Middleware g);
-    
-    /**
      * Move the character
      */
     public void move();
