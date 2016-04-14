@@ -6,11 +6,11 @@ package findmensions;
  */
 public class Game {
     
-    final int dimensionSize = 10; // May make this changable depending on how game goes
+    final int dimensionSize = 10; // Length of an axis, may make this changable depending on how game goes
             
     private int numberOfPlayers;
     private int numberOfDimensions;
-    private int radix;
+    private int radix; // Assume 10 for now but keep this in mind when developing so it's easy to put in
     
     public void showMessage(String s) {
         throw new UnsupportedOperationException("Not supported yet.");
