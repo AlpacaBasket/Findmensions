@@ -16,11 +16,6 @@ public class SuperRole implements Role {
     String roleString;
     
     @Override
-    public void setGame(Middleware g) {
-        this.game = g;
-    }
-    
-    @Override
     public String getRole() {
         return this.roleString;
     }
