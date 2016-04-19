@@ -38,4 +38,24 @@ public class Game {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     
+    /**
+     * Whew, could be a doozy of a function
+     * Handle a player sending a move command
+     * @param p
+     * The player doing the move
+     * @param move 
+     * The move
+     * 
+     * Can be 1 of 2 things: 
+     *   0 to change dimensions
+     *   DX to move
+     *     Where D is the dimension on which you're moving
+     *     and X is the coordinate on that axis
+     */
+    public void doMove(Player p, String move) {
+        throw new UnsupportedOperationException("Not supported yet.");
+        
+        // Call clojure file to handle this I guess
+    }
+    
 }
