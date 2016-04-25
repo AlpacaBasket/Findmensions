@@ -1,7 +1,7 @@
 package findmensions;
 
 /**
- * Represents a game that can be saved/loaded and works as a nifty pointer
+ * Represents a game that can be saved/loaded
  * @author Tiffany Sawyer
  */
 public class Game {
