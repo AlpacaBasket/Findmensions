@@ -4,6 +4,6 @@ package findmensions.Roles;
  *
  * @author Tiffany Sawyer
  */
-public class Squanchy {
+public class Squanchy extends SuperRole {
 
 }

@@ -6,9 +6,9 @@ package findmensions;
  */
 public class Player {
     
-    private int[] coordinates;
-    private final Role role;
-    private int meeseeks;
+    protected int[] coordinates;
+    protected final Role role;
+    protected int meeseeks;
 
     public Player(int[] startingPoint, Role r) {
         

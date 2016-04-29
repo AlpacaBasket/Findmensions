@@ -8,19 +8,19 @@ import java.util.ArrayList;
  */
 public class Game {
     
-    private int dimensionSize = 10; // Length of an axis, may make this changable depending on how game goes
+    protected int dimensionSize = 10; // Length of an axis, may make this changable depending on how game goes
             
-    private int numberOfPlayers;
-    private int numberOfDimensions;
-    private int radix; // Assume 10 for now but keep this in mind when developing so it's easy to put in
+    protected int numberOfPlayers;
+    protected int numberOfDimensions;
+    protected int radix; // Assume 10 for now but keep this in mind when developing so it's easy to put in
     
-    private ArrayList<Player> players;
+    protected ArrayList<Player> players;
     
-    private String[] assignedRoles;
-    private String[] unassignedRoles;
+    protected String[] assignedRoles;
+    protected String[] unassignedRoles;
     
-    private enum GameState { INPROGRESS, RICKWON, ANTIRICKWON, EVILRICKWON }
-    private GameState stateOfGame;
+    protected enum GameState { INPROGRESS, RICKWON, ANTIRICKWON, EVILRICKWON }
+    protected GameState stateOfGame;
     
     /**
      * DO NOT USE!!!
@@ -33,8 +33,11 @@ public class Game {
     /**
      * Initialize a game
      * @param playerNum
+     * Number of players in the game
      * @param dimensionNum
-     * @param radix
+     * Number of dimensions the field is
+     * @param r
+     * The radix of the coordinates
      */
     public Game(int playerNum, int dimensionNum, int r) {
         

@@ -1,6 +1,8 @@
 package TestClasses;
 
 import findmensions.*;
+import findmensions.Roles.*;
+import java.util.ArrayList;
 
 /**
  * A pre-made Game object used for test purposes
@@ -13,7 +15,13 @@ public class PremadeGame extends Game {
      * test purposes. 
      */
     public PremadeGame () {
-        // Create a test game environment
+        super();
+        
+        this.stateOfGame = GameState.INPROGRESS;
+        this.players = new ArrayList<>();
+        this.numberOfPlayers = 4;
+        this.numberOfDimensions = 5;
+        this.radix = 10;
     }
     
     /**
@@ -24,6 +32,20 @@ public class PremadeGame extends Game {
      * constructor
      */
     public void setupTestGame1() {
+        
+        // Set up array of 5 coordinates
+        int[] coord = new int[]{0, 0, 0, 0, 0};
+        
+        Role role1 = new Rick();
+        Role role2 = new Jerry();
+        Role role3 = new Morty();
+        Role role4 = new Squanchy();
+        
+        // All players start at 00000 for this test
+        this.addPlayer(new Player(coord, role1));
+        this.addPlayer(new Player(coord, role2));
+        this.addPlayer(new Player(coord, role3));
+        this.addPlayer(new Player(coord, role4));
         
     }
     
