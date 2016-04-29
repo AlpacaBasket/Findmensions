@@ -11,9 +11,9 @@ import static org.junit.Assert.*;
  *
  * @author user
  */
-public class ClientTest {
+public class DebugClientTest {
     
-    public ClientTest() {
+    public DebugClientTest() {
     }
     
     @BeforeClass

@@ -7,7 +7,7 @@ package findmensions;
 public class Player {
     
     private int[] coordinates;
-    private Role role;
+    private final Role role;
     private int meeseeks;
 
     public Player(int[] startingPoint, Role r) {
@@ -16,7 +16,6 @@ public class Player {
         this.role = r;
         this.meeseeks = 0;
         
-        role.passReferenceToPlayer(this);
     }
     
     /**
@@ -28,6 +27,10 @@ public class Player {
      */
     public int getCoordinate(int d) {
         return this.coordinates[d];
+    }
+    
+    public void setCoordinate(int[] c) {
+        this.coordinates = c;
     }
     
     public Role getRole() {

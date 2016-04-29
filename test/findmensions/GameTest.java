@@ -38,7 +38,7 @@ public class GameTest {
      */
     @Test
     public void testShowMessage1() {
-        System.out.println("showMessage");
+        System.out.println("Hello World");
         String s = "";
         Game instance = new PremadeGame();
         instance.showMessage(s);
@@ -51,7 +51,7 @@ public class GameTest {
      */
     @Test
     public void testShowMessage2() {
-        System.out.println("showMessage");
+        System.out.println("");
         String s = "";
         Game instance = new PremadeGame();
         instance.showMessage(s);
@@ -64,7 +64,7 @@ public class GameTest {
      */
     @Test
     public void testShowMessage3() {
-        System.out.println("showMessage");
+        System.out.println("†ƒ∫¥†©¶ª");
         String s = "";
         Game instance = new PremadeGame();
         instance.showMessage(s);
@@ -77,7 +77,7 @@ public class GameTest {
      */
     @Test
     public void testShowMessage4() {
-        System.out.println("showMessage");
+        System.out.println(1);
         String s = "";
         Game instance = new PremadeGame();
         instance.showMessage(s);

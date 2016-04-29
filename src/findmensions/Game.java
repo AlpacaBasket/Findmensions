@@ -1,39 +1,70 @@
 package findmensions;
 
+import java.util.ArrayList;
+
 /**
  * Represents a game that can be saved/loaded
  * @author Tiffany Sawyer
  */
 public class Game {
     
-    final int dimensionSize = 10; // Length of an axis, may make this changable depending on how game goes
+    private int dimensionSize = 10; // Length of an axis, may make this changable depending on how game goes
             
     private int numberOfPlayers;
     private int numberOfDimensions;
     private int radix; // Assume 10 for now but keep this in mind when developing so it's easy to put in
     
-    private String[] players;
+    private ArrayList<Player> players;
     
     private String[] assignedRoles;
     private String[] unassignedRoles;
     
+    private enum GameState { INPROGRESS, RICKWON, ANTIRICKWON, EVILRICKWON }
+    private GameState stateOfGame;
+    
     /**
-     * Initialize a game
+     * DO NOT USE!!!
+     * This is only used for subclass purposes and doesn't instantiate the class properly
      */
     public Game() {
+        throw new UnsupportedOperationException("ERROR: Used incorrect Game() constructor");
+    }
+    
+    /**
+     * Initialize a game
+     * @param playerNum
+     * @param dimensionNum
+     * @param radix
+     */
+    public Game(int playerNum, int dimensionNum, int r) {
+        
+        this.stateOfGame = GameState.INPROGRESS; // Set the game as in progress
+        this.players = new ArrayList<>(); // Initialize empty list of players
+        this.numberOfPlayers = playerNum;
+        this.numberOfDimensions = dimensionNum;
+        this.radix = r;
         
     }
     
+    /**
+     * Send a string to any clients listening to this
+     * @param s 
+     * String to send
+     */
     public void showMessage(String s) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
     
     public void RickWins() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.stateOfGame = GameState.RICKWON;
     }
 
     public void AntiRickTeamWins() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.stateOfGame = GameState.ANTIRICKWON;
+    }
+
+    public void EvilRickWins() {
+        this.stateOfGame = GameState.EVILRICKWON;
     }
 
     public void RickAttack(int dimension, Player attacker) {
@@ -44,10 +75,6 @@ public class Game {
           // If coordinate of a player matches Rick's on the chosen dimension
           // then call hitByRick() on that player
           // Don't hurt attacker (can either be Rick or evil Rick)
-    }
-
-    public void EvilRickWins() {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
     
     /**
@@ -95,6 +122,10 @@ public class Game {
      */
     public Role getRole() {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    public void addPlayer(Player p) {
+        this.players.add(p);
     }
     
 }
