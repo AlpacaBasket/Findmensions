@@ -49,6 +49,18 @@ public class Game {
         
     }
     
+    public int getNumberOfPlayers() {
+        return this.numberOfPlayers;
+    }
+    
+    public int getNumberOfDimensions() {
+        return this.numberOfDimensions;
+    }
+    
+    public int getRadix() {
+        return this.radix;
+    }
+    
     /**
      * Send a string to any clients listening to this
      * @param s 
