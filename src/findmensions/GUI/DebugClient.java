@@ -6,8 +6,8 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -16,15 +16,16 @@ import javax.swing.JTextField;
  */
 public class DebugClient extends JPanel implements Client, ActionListener {
     
-    JPanel titleHolder; // JPanel that holds the text for the title
-    JTextField title; // Title as text
+    JLabel title; // Title as text
+    
+    JPanel contentPanel; // To hold some components
     
     JButton next; // Button to move to the waiting screen
-    JButton nextPlayerMove; // Button to move to the next player on the waiting screen
+    JButton nextPlayerMove; // Button to move to the next player from the waiting screen
     JButton rickAttack; // Button to perform next action and do a rick attack
     
-    JTextArea coordinateInput; // Text box for putting in the coordinates you want to move to
-    JTextField textField; // Field where output is displayed
+    JTextField coordinateInput; // Text box for putting in the coordinates you want to move to
+    JLabel outputArea; // Text area where output is displayed
     
     Game game; // The game this is controlling
     
@@ -34,28 +35,34 @@ public class DebugClient extends JPanel implements Client, ActionListener {
      * Just a constructor
      */
     public DebugClient() {
-        
-        // Instantiate all the components
-        
-        titleHolder = new JPanel();
-        
-        next = new JButton();
-        next.addActionListener(this);
-        
-        nextPlayerMove = new JButton();
-        nextPlayerMove.addActionListener(this);
-        
-        rickAttack = new JButton();
-        rickAttack.addActionListener(this);
-        
-        coordinateInput = new JTextArea();
-        
     }
     
     /**
      * Starts the game
      */
     public void begin() {
+        
+        // Instantiate all the components
+        
+        title = new JLabel("Findmensions");
+        
+        contentPanel = new JPanel();
+        
+        next = new JButton("Start turn");
+        next.addActionListener(this);
+        contentPanel.add(next);
+        
+        nextPlayerMove = new JButton("End turn");
+        nextPlayerMove.addActionListener(this);
+        contentPanel.add(nextPlayerMove);
+        
+        rickAttack = new JButton("Attack");
+        rickAttack.addActionListener(this);
+        contentPanel.add(rickAttack);
+        
+        coordinateInput = new JTextField(10);
+        outputArea = new JLabel();
+        contentPanel.add(coordinateInput);
         
         waitingScreen(); // Wait for player to show moves
         
@@ -103,6 +110,9 @@ public class DebugClient extends JPanel implements Client, ActionListener {
     public void waitingScreen() {
         
         this.setLayout(new BorderLayout());
+        
+        this.add(title, BorderLayout.NORTH);
+        this.add(contentPanel, BorderLayout.CENTER);
         
     }
     

@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Represents a game that can be saved/loaded
  * @author Tiffany Sawyer
  */
-public class Game {
+public class Game {  
     
     protected int dimensionSize = 10; // Length of an axis, may make this changable depending on how game goes
             
@@ -27,7 +27,6 @@ public class Game {
      * This is only used for subclass purposes and doesn't instantiate the class properly
      */
     public Game() {
-        throw new UnsupportedOperationException("ERROR: Used incorrect Game() constructor");
     }
     
     /**
@@ -107,12 +106,22 @@ public class Game {
      *     and X is the coordinate on that axis
      * @return 
      * Exit code:
-     * 0 - Success
-     * Other - Failure
+     * 0 - Closer
+     * 1 - Further
+     * 2 - Invalid Move
+     * 3 - Function failed for another reason
      * 666 - Not supported yet
      */
     public int doMove(Player p, String move) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
+        if (p.getRole().getRole().equals("Rick")) {
+            // Return if distance to Jerry is further or closer than last position
+        }
+        else {
+            // Return if distance to Rick is further or closer than last position
+        }
+        
+        return 666;
         
         // Call clojure file to handle this I guess
     }
@@ -125,8 +134,21 @@ public class Game {
      * @return 
      * A list of random roles
      */
-    public String[] getRandomListOfRoles(int size) {
+    public Role[] getRandomListOfRoles(int size) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    /**
+     * Returns a list of the name of every role
+     * @return 
+     * Array of roles
+     */
+    public String[] getAllRoles() {
+        
+        // Will get from database, for now just hard code it
+        
+        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
     
     /**

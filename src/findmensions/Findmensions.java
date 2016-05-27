@@ -1,15 +1,15 @@
 package findmensions;
 
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
+import TestClasses.PremadeGame;
+import findmensions.GUI.DebugClient;
+import javax.swing.JFrame;
 
 /*
 TODO: Lots
 
 Finish all roles
 Create middleware between player client and game server
-Seperate client/server/middleware into different applications to be distributed among devices
+Separate client/server/middleware into different applications to be distributed among devices
 */
 
 /**
@@ -19,7 +19,19 @@ Seperate client/server/middleware into different applications to be distributed 
 public class Findmensions {
     
     public static void main(String[] args) {
-        System.out.println("Helo wrold?");
+        
+        JFrame frame = new JFrame();
+        frame.setSize(500,500);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        DebugClient client = new DebugClient();
+        client.addGame(new PremadeGame());
+        client.begin();
+        
+        frame.add(client);
+        
+        frame.setVisible(true);
+        
     }
 
 }
