@@ -1,6 +1,9 @@
 package findmensions;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 /**
  * Represents a game that can be saved/loaded
@@ -9,7 +12,7 @@ import java.util.ArrayList;
 public class Game {  
     
     protected int dimensionSize = 10; // Length of an axis, may make this changable depending on how game goes
-            
+    
     protected int numberOfPlayers;
     protected int numberOfDimensions;
     protected int radix; // Assume 10 for now but keep this in mind when developing so it's easy to put in
@@ -121,7 +124,7 @@ public class Game {
             // Return if distance to Rick is further or closer than last position
         }
         
-        return 666;
+        return 666; // Unsupported code
         
         // Call clojure file to handle this I guess
     }
@@ -135,6 +138,34 @@ public class Game {
      * A list of random roles
      */
     public Role[] getRandomListOfRoles(int size) {
+        
+        if (size < 3) {
+            throw new InvalidParameterException("Amount of rules must be at least 3");
+        }
+        
+        Role[] randomRoleList = new Role[size];
+        ArrayList<String> listOfAllRoles = this.getAllRoles();
+        
+        // Unlikely!!!
+        // But put here to be safe
+        // Theoretically some roles could be repeated but that may be too many players
+        if (size > listOfAllRoles.size()) {
+            throw new InvalidParameterException("Amount of players exceeds number of roles");
+        }
+        
+        // Just shuffle the full list, no picking neccessary
+        if (size == listOfAllRoles.size()) {
+            
+            // Randomise list order
+            Random rnd = new Random();
+            Collections.shuffle(listOfAllRoles, rnd);
+            
+            // Convert ArrayList of Strings to array of Roles
+            for (int i = 0; i < size; i++) {
+                randomRoleList[i] = getRoleFromRoleName(listOfAllRoles.get(i));
+            }
+        }
+        
         throw new UnsupportedOperationException("Not supported yet.");
     }
     
@@ -143,12 +174,42 @@ public class Game {
      * @return 
      * Array of roles
      */
-    public String[] getAllRoles() {
+    public ArrayList<String> getAllRoles() {
         
         // Will get from database, for now just hard code it
         
-        throw new UnsupportedOperationException("Not supported yet.");
+        ArrayList<String> roles = new ArrayList<String>();
         
+        roles.add("AbradolfLincler");
+        roles.add("Annie");
+        roles.add("AntsInMyEyesJohnson");
+        roles.add("BirdPerson");
+        roles.add("DoofusRick");
+        roles.add("EvilRick");
+        roles.add("FourthDimensionalBeing");
+        roles.add("Jerry");
+        roles.add("LuciusNeedful");
+        roles.add("Morty");
+        roles.add("MortyJr");
+        roles.add("PrinceNebulon");
+        roles.add("Rick");
+        roles.add("ScaryTerry");
+        roles.add("Snowball");
+        roles.add("Squanchy");
+        
+        return roles;
+        
+    }
+    
+    /**
+     * Return a Role given the role name
+     * @param name
+     * Name of role
+     * @return 
+     * A role object
+     */
+    public Role getRoleFromRoleName(String name) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
     /**
@@ -157,7 +218,7 @@ public class Game {
      * @return 
      * A role
      */
-    public Role getRole() {
+    public Role giveRoleToPlayer() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     
