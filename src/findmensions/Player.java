@@ -36,7 +36,16 @@ public class Player {
     public Role getRole() {
         return this.role;
     }
-
+    
+    /**
+     * Get the name of the player's role
+     * @return 
+     * Name of role
+     */
+    public String getRoleName() {
+        return this.role.getClass().getSimpleName();
+    }
+ 
     public int getMeeseeksAmount() {
         return this.meeseeks;
     }

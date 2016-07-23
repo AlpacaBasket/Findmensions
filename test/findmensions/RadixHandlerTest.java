@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package findmensions;
 
 import org.junit.After;
@@ -9,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author user
+ * @author User
  */
 public class RadixHandlerTest {
     
@@ -36,7 +41,7 @@ public class RadixHandlerTest {
      * Test of stringToNumber method, of class RadixHandler.
      */
     @Test
-    public void testStringToNumber1() {
+    public void testStringToNumber() {
         System.out.println("stringToNumber");
         String[] listOfNums = null;
         int radix = 0;
@@ -44,68 +49,14 @@ public class RadixHandlerTest {
         int[] result = RadixHandler.stringToNumber(listOfNums, radix);
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("Failed, result: " + result);
-    }
-
-    /**
-     * Test of stringToNumber method, of class RadixHandler.
-     */
-    @Test
-    public void testStringToNumber2() {
-        System.out.println("stringToNumber");
-        String[] listOfNums = null;
-        int radix = 0;
-        int[] expResult = null;
-        int[] result = RadixHandler.stringToNumber(listOfNums, radix);
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        if (!result.equals(expResult)) {
-            fail("Failed, result: " + result);
-        }
-        fail("Test not written yet");
-    }
-
-    /**
-     * Test of stringToNumber method, of class RadixHandler.
-     */
-    @Test
-    public void testStringToNumber3() {
-        System.out.println("stringToNumber");
-        String[] listOfNums = null;
-        int radix = 0;
-        int[] expResult = null;
-        int[] result = RadixHandler.stringToNumber(listOfNums, radix);
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        if (!result.equals(expResult)) {
-            fail("Failed, result: " + result);
-        }
-        fail("Test not written yet");
-    }
-
-    /**
-     * Test of stringToNumber method, of class RadixHandler.
-     */
-    @Test
-    public void testStringToNumber4() {
-        System.out.println("stringToNumber");
-        String[] listOfNums = null;
-        int radix = 0;
-        int[] expResult = null;
-        int[] result = RadixHandler.stringToNumber(listOfNums, radix);
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        if (!result.equals(expResult)) {
-            fail("Failed, result: " + result);
-        }
-        fail("Test not written yet");
+        fail("The test case is a prototype.");
     }
 
     /**
      * Test of numberToString method, of class RadixHandler.
      */
     @Test
-    public void testNumberToString1() {
+    public void testNumberToString() {
         System.out.println("numberToString");
         int[] listOfNums = null;
         int radix = 0;
@@ -113,64 +64,7 @@ public class RadixHandlerTest {
         String[] result = RadixHandler.numberToString(listOfNums, radix);
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        if (!result.equals(expResult)) {
-            fail("Failed, result: " + result);
-        }
-        fail("Test not written yet");
-    }
-
-    /**
-     * Test of numberToString method, of class RadixHandler.
-     */
-    @Test
-    public void testNumberToString2() {
-        System.out.println("numberToString");
-        int[] listOfNums = null;
-        int radix = 0;
-        String[] expResult = null;
-        String[] result = RadixHandler.numberToString(listOfNums, radix);
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        if (!result.equals(expResult)) {
-            fail("Failed, result: " + result);
-        }
-        fail("Test not written yet");
-    }
-
-    /**
-     * Test of numberToString method, of class RadixHandler.
-     */
-    @Test
-    public void testNumberToString3() {
-        System.out.println("numberToString");
-        int[] listOfNums = null;
-        int radix = 0;
-        String[] expResult = null;
-        String[] result = RadixHandler.numberToString(listOfNums, radix);
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        if (!result.equals(expResult)) {
-            fail("Failed, result: " + result);
-        }
-        fail("Test not written yet");
-    }
-
-    /**
-     * Test of numberToString method, of class RadixHandler.
-     */
-    @Test
-    public void testNumberToString4() {
-        System.out.println("numberToString");
-        int[] listOfNums = null;
-        int radix = 0;
-        String[] expResult = null;
-        String[] result = RadixHandler.numberToString(listOfNums, radix);
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        if (!result.equals(expResult)) {
-            fail("Failed, result: " + result);
-        }
-        fail("Test not written yet");
+        fail("The test case is a prototype.");
     }
     
 }
