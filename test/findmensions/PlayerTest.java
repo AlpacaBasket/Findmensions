@@ -70,19 +70,6 @@ public class PlayerTest {
     }
 
     /**
-     * Test of setCoordinate method, of class Player.
-     */
-    @Test
-    public void testSetCoordinate() {
-        System.out.println("setCoordinate");
-        int[] c = null;
-        Player instance = examplePlayer();
-        instance.setCoordinate(c);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of getRoleName method, of class Player.
      */
     @Test
@@ -105,19 +92,6 @@ public class PlayerTest {
         int result = instance.getMeeseeksAmount();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-    }
-
-    /**
-     * Test of setMeeseeksAmount method, of class Player.
-     */
-    @Test
-    public void testSetMeeseeksAmount() {
-        System.out.println("setMeeseeksAmount");
-        int n = 0;
-        Player instance = examplePlayer();
-        instance.setMeeseeksAmount(n);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("Not written test yet");
     }
     
 }
