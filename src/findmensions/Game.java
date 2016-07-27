@@ -226,4 +226,14 @@ public class Game {
         this.players.add(p);
     }
     
+    /**
+     * Remove player from the game
+     * Prompt to add new player
+     * @param p 
+     * Player being removed
+     */
+    public void removePlayer(Player p) {
+        this.players.remove(p);
+    }
+    
 }

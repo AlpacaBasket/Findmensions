@@ -50,5 +50,19 @@ public class Player {
     public void setMeeseeksAmount(int n) {
         this.meeseeks = n;
     }
+
+    /**
+     * Add a single meeseeks to this player
+     */
+    public void addMeeseeks() {
+        this.meeseeks += 1;
+    }
+
+    /**
+     * Remove a single meeseeks from this player
+     */
+    public void removeMeeseeks() {
+        this.meeseeks -= 1;
+    }
     
 }
