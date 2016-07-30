@@ -1,5 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package findmensions;
 
+import findmensions.Roles.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -9,7 +15,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author user
+ * @author User
  */
 public class PlayerTest {
     
@@ -31,6 +37,20 @@ public class PlayerTest {
     @After
     public void tearDown() {
     }
+    
+    /**
+     * Create a Player object for testing
+     * @return 
+     * Dummy player
+     */
+    public Player examplePlayer() {
+        
+        int[] testCoords = {0, 0};
+        Role playerRole = new Jerry();
+        Player player = new Player(testCoords, playerRole);
+        
+        return player;
+    }
 
     /**
      * Test of getCoordinate method, of class Player.
@@ -39,26 +59,26 @@ public class PlayerTest {
     public void testGetCoordinate() {
         System.out.println("getCoordinate");
         int d = 0;
-        Player instance = null;
+        
+        Player instance = examplePlayer();
+        
         int expResult = 0;
         int result = instance.getCoordinate(d);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
-     * Test of getRole method, of class Player.
+     * Test of getRoleName method, of class Player.
      */
     @Test
-    public void testGetRole() {
-        System.out.println("getRole");
-        Player instance = null;
-        Role expResult = null;
-        Role result = instance.getRole();
+    public void testGetRoleName() {
+        System.out.println("getRoleName");
+        Player instance = examplePlayer();
+        String expResult = "Jerry";
+        String result = instance.getRoleName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -67,25 +87,11 @@ public class PlayerTest {
     @Test
     public void testGetMeeseeksAmount() {
         System.out.println("getMeeseeksAmount");
-        Player instance = null;
+        Player instance = examplePlayer();
         int expResult = 0;
         int result = instance.getMeeseeksAmount();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setMeeseeksAmount method, of class Player.
-     */
-    @Test
-    public void testSetMeeseeksAmount() {
-        System.out.println("setMeeseeksAmount");
-        int n = 0;
-        Player instance = null;
-        instance.setMeeseeksAmount(n);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

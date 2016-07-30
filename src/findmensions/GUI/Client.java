@@ -14,7 +14,7 @@ public interface Client {
     
     public void doMove(String m); // Send move to game
     
-    public void rickAttack();
+    public void rickAttack(int dimension); // Do a rickity rick
     
     public void addGame(Game g); // Add reference to game client is part of
 

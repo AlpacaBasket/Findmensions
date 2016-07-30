@@ -227,6 +227,7 @@ public class Game {
     }
     
     /**
+<<<<<<< HEAD
      * Remove player from the game
      * Prompt to add new player
      * @param p 
@@ -234,6 +235,29 @@ public class Game {
      */
     public void removePlayer(Player p) {
         this.players.remove(p);
+    }
+     
+    /* Turn input text into valid coordinate movement
+     * @param text
+     * Inputted text
+     * @return 
+     * Move as String if valid,
+     * else return -1
+     */
+    public String validatePlayerMove(String text) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    /**
+     * Turn input text into valid Rick move
+     * @param text
+     * Inputted text
+     * @return 
+     * Text as int if valid,
+     * else return -1
+     */
+    public int validateRickMove(String text) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }

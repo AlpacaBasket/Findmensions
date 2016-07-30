@@ -2,6 +2,8 @@ package findmensions.GUI;
 
 import findmensions.Game;
 import findmensions.Player;
+import findmensions.Role;
+import findmensions.Roles.Rick;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,9 +21,10 @@ public class DebugClient extends JPanel implements Client, ActionListener {
     JLabel title; // Title as text
     
     JPanel contentPanel; // To hold some components
+    JPanel newContent; // Temporarily hold new content before overwriting old components
     
-    JButton next; // Button to move to the waiting screen
-    JButton nextPlayerMove; // Button to move to the next player from the waiting screen
+    JButton next; // Button to move to the next player from the waiting screen
+    JButton nextPlayerMove; // Button to move to the waiting screen
     JButton rickAttack; // Button to perform next action and do a rick attack
     
     JTextField coordinateInput; // Text box for putting in the coordinates you want to move to
@@ -44,27 +47,33 @@ public class DebugClient extends JPanel implements Client, ActionListener {
         
         // Instantiate all the components
         
-        title = new JLabel("Findmensions");
+        this.setLayout(new BorderLayout());
         
         contentPanel = new JPanel();
+        newContent = new JPanel();
+        
+        title = new JLabel("Findmensions");
+        title.setHorizontalAlignment(JLabel.CENTER);
         
         next = new JButton("Start turn");
         next.addActionListener(this);
-        contentPanel.add(next);
         
-        nextPlayerMove = new JButton("End turn");
+        nextPlayerMove = new JButton("Make move");
         nextPlayerMove.addActionListener(this);
-        contentPanel.add(nextPlayerMove);
         
         rickAttack = new JButton("Attack");
         rickAttack.addActionListener(this);
-        contentPanel.add(rickAttack);
         
         coordinateInput = new JTextField(10);
         outputArea = new JLabel();
-        contentPanel.add(coordinateInput);
         
+        this.add(title, BorderLayout.NORTH);
+        this.add(contentPanel, BorderLayout.CENTER);
         waitingScreen(); // Wait for player to show moves
+        
+        Role currentPlayerRole = new Rick();
+        int[] testCoordinates = {0, 0};
+        currentPlayer = new Player(testCoordinates, currentPlayerRole);
         
     }
 
@@ -87,21 +96,27 @@ public class DebugClient extends JPanel implements Client, ActionListener {
 
     @Override
     public void doMove(String m) {
+        
         throw new UnsupportedOperationException("Not supported yet.");
         
-        // this.game.doMove(currentPlayer, m);
-        // Put in loop so keep asking to do the move until you get a valid return code
+        /*int exitCode = 1;
+        while (exitCode != 0) {
+            exitCode = this.game.doMove(currentPlayer, m);
+        }
+        */
         
     }
 
+    // Set the game of this client
     @Override
     public void addGame(Game g) {
         this.game = g;
     }
     
+    // Do a Rickity Rick
     @Override
-    public void rickAttack() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void rickAttack(int dimension) {
+        this.game.RickAttack(dimension, currentPlayer);
     }
     
     /**
@@ -109,10 +124,13 @@ public class DebugClient extends JPanel implements Client, ActionListener {
      */
     public void waitingScreen() {
         
-        this.setLayout(new BorderLayout());
+        title.setText("Waiting screen");
         
-        this.add(title, BorderLayout.NORTH);
-        this.add(contentPanel, BorderLayout.CENTER);
+        contentPanel.removeAll();
+        contentPanel.add(next, BorderLayout.CENTER);
+        
+        contentPanel.updateUI();
+        this.updateUI();
         
     }
     
@@ -121,23 +139,39 @@ public class DebugClient extends JPanel implements Client, ActionListener {
      */
     public void moveScreen() {
         
-        this.setLayout(new BorderLayout());
+        title.setText("User input screen");
+        
+        contentPanel.removeAll();
+        contentPanel.add(coordinateInput, BorderLayout.CENTER);
+        contentPanel.add(nextPlayerMove, BorderLayout.CENTER);
+        
+        // Add Rick Attack button if player is Rick or Evil Rick
+        if ((currentPlayer.getRoleName().equals("Rick")) || (currentPlayer.getRoleName().equals("Evil Rick"))) {
+            contentPanel.add(rickAttack, BorderLayout.CENTER);
+        }
+        
+        contentPanel.updateUI();
+        this.updateUI();
         
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         
+        // Screen where a player makes a move, to be pressed by the player
+        // making the move (other players shouldn't see this screen)
         if (e.getSource() == this.nextPlayerMove) {
-            moveScreen();
-        }
-        else if (e.getSource() == this.next) {
-            doMove(coordinateInput.getText());
             waitingScreen();
         }
+        // Player has made their move, go to transition screen between
+        // players
+        else if (e.getSource() == this.next) {
+            // doMove(game.validatePlayerMove(coordinateInput.getText()), currentPlayer);
+            moveScreen();
+        }
+        // Player has done a rick attack, go to transition screen
         else if (e.getSource() == this.rickAttack) {
-            doMove(coordinateInput.getText());
-            rickAttack();
+            // rickAttack(game.validateRickMove(coordinateInput.getText()));
             waitingScreen();
         }
         
