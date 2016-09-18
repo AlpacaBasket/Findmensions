@@ -8,6 +8,6 @@ package findmensions.Roles;
  */
 public class MortyJr extends SuperRole {
     
-    
+    int hp = 2;
     
 }

@@ -12,7 +12,7 @@ public class Rick extends SuperRole {
     /**
      * Evil Rick is the only other role that can do the
      * attack command so it must be Evil Rick attacking
-     * unless something has went wrong
+     * unless something has went wrong (roles may expand later?)
      */
     @Override
     public void hitByRick() {

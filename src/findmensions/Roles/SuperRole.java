@@ -14,10 +14,16 @@ public class SuperRole implements Role {
     Middleware game;
     Player player;
     String roleString;
+    int hp = 1;
     
     @Override
     public String getRole() {
         return this.roleString;
+    }
+    
+    @Override
+    public int getHP() {
+        return this.hp;
     }
 
     /**
@@ -43,6 +49,13 @@ public class SuperRole implements Role {
      */
     @Override
     public void hitByRick() {
+        
+        if (this.player.getMeeseeksAmount() == 0) {
+            this.game.playerDied(this.player);
+        }
+        else {
+            this.player.removeMeeseeks();
+        }
         
     }
 

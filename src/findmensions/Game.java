@@ -99,7 +99,7 @@ public class Game {
      * Handle a player sending a move command
      * @param p
      * The player doing the move
-     * @param move 
+     * @param move
      * The move
      * 
      * Can be 1 of 2 things: 
@@ -227,7 +227,6 @@ public class Game {
     }
     
     /**
-<<<<<<< HEAD
      * Remove player from the game
      * Prompt to add new player
      * @param p 

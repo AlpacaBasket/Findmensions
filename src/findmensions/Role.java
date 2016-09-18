@@ -41,4 +41,11 @@ public abstract interface Role {
      * The name of the role, as a string
      */
     public String getRole();
+    
+    /**
+     * Get the HP of the role
+     * @return 
+     * The current HP value
+     */
+    public int getHP();
 }

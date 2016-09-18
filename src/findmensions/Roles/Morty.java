@@ -23,7 +23,7 @@ public class Morty extends SuperRole {
             game.AntiRickTeamWins(); // Rick loses if he kills Morty
         }
         else {
-            
+            super.player.removeMeeseeks();
         }
     }
     
